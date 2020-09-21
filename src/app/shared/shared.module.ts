@@ -4,13 +4,16 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './header/header.component';
+import { AlertPopupComponent } from './alert-popup/alert-popup.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    AlertPopupComponent
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    AlertPopupComponent
   ],
   imports: [
     CommonModule,

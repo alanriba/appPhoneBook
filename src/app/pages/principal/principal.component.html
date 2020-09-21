@@ -1,3 +1,19 @@
-<app-header></app-header>
+<div id="main-wrapper">
+  <app-header></app-header>
+  <div class="page-wrapper" style="margin-left:0px;">
+    <div class="container-fluid">
 
-
+      <div class="row animated fadeIn fast" *ngIf="loading">
+        <div class="col-12">
+          <div class="alert alert-info text-center">
+            <h4 class="alert-heading">Cargando</h4>
+            <i class="fa fa-spin fa-refresh fa-2x"></i>
+            <p class="mb-0">Por favor espere</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Breadcrumbs -->
+  <footer class="footer">© 2020 PhoneBook Prueba</footer>
+</div>
