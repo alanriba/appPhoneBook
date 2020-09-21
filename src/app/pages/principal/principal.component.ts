@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, OnDestroy } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PersonaModel } from 'src/app/model/persona.model';
 import { PersonaService } from 'src/app/services/persona.service';
