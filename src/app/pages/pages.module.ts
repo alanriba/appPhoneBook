@@ -7,11 +7,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { PrincipalComponent } from './principal/principal.component';
 
+// Pipes
+import { FiltrosPipe } from '../pipes/filtros.pipe';
+
 
 
 @NgModule({
   declarations: [
-    PrincipalComponent
+    PrincipalComponent,
+    FiltrosPipe
   ],
   exports: [
     PrincipalComponent

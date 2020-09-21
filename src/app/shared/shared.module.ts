@@ -5,15 +5,18 @@ import { FormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './header/header.component';
 import { AlertPopupComponent } from './alert-popup/alert-popup.component';
+import { PopUpDetailsComponent } from './popup-details/popup-details.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    AlertPopupComponent
+    AlertPopupComponent,
+    PopUpDetailsComponent,
   ],
   exports: [
     HeaderComponent,
-    AlertPopupComponent
+    AlertPopupComponent,
+    PopUpDetailsComponent
   ],
   imports: [
     CommonModule,

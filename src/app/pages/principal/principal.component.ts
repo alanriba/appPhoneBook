@@ -1,28 +1,48 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { Component, OnInit, Injectable, OnDestroy } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PersonaModel } from 'src/app/model/persona.model';
 import { PersonaService } from 'src/app/services/persona.service';
+import Utilidades from 'src/app/utils/utils';
+import { PopUpDetailsComponent } from '../../shared/popup-details/popup-details.component';
 
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
-  styles: [],
+  providers: [Utilidades, PopUpDetailsComponent],
 })
-export class PrincipalComponent implements OnInit {
-  loading: boolean = true;
 
-  constructor(private personaService: PersonaService) {}
+export class PrincipalComponent implements OnInit {
+
+  loading = true;
+  personList: PersonaModel[] = [];
+  filtrarPersona = '';
+
+  constructor(
+    private personaService: PersonaService,
+    private utilServices: Utilidades,
+    private ngbModal: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.cargarUsuarios();
   }
 
-  cargarUsuarios() {
-    this.loading = true;
-    this.personaService.getPersona().subscribe((persona: any) => {
-      console.log(persona);
+  cargarUsuarios(): void {
+    this.personaService.getPersona().subscribe((personaObj) => {
+      if (personaObj.length > 0) {
+        this.loading = false;
+        this.personList = personaObj;
+      }
     });
+  }
 
-    this.loading = false;
+  ngDestroy(): void {
+    this.cargarUsuarios();
+  }
+
+  viewDetail(person: any): void {
+    const modalRef = this.ngbModal.open(PopUpDetailsComponent);
+    modalRef.componentInstance.persona = person;
+    console.log(this.utilServices.validateRut(person.rut));
   }
 }

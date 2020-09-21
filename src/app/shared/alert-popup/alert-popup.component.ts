@@ -4,13 +4,11 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-alert-popup',
   templateUrl: './alert-popup.component.html',
-  styleUrls: ['./alert-popup.component.scss']
+  styleUrls: ['./alert-popup.component.css'],
 })
 export class AlertPopupComponent implements OnInit {
   @Input() errorMessage;
-  
-  constructor(public activeModal: NgbActiveModal) {}
-  ngOnInit() {
-  }
 
+  constructor(public activeModal: NgbActiveModal) {}
+  ngOnInit(): void {}
 }

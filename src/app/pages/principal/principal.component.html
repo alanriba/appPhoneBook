@@ -1,8 +1,7 @@
 <div id="main-wrapper">
   <app-header></app-header>
-  <div class="page-wrapper" style="margin-left:0px;">
+  <div class="page-wrapper" style="margin-left: 0px">
     <div class="container-fluid">
-
       <div class="row animated fadeIn fast" *ngIf="loading">
         <div class="col-12">
           <div class="alert alert-info text-center">
@@ -12,8 +11,55 @@
           </div>
         </div>
       </div>
+      <div class="row" *ngIf="!loading">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-8">
+              <h4 class="card-title">Personas ({{ personList.length }})</h4>
+              <h6 class="card-subtitle">Personas encontradas en la consulta</h6>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <input type="text" class="form-control" name="filtrarPersona" placeholder="Buscar Personas..." [(ngModel)]="filtrarPersona" >
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead class="table-dark">
+                <tr>
+                  <th class="w100">ID</th>
+                  <th>RUT</th>
+                  <th class="w100">Nombre</th>
+                  <th class="w100">Apellido</th> <th class="w100">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let person of personList | filtros:filtrarPersona">
+                  <td>{{ person.id }}</td>
+                  <td>{{ person.rut }}</td>
+                  <td>{{ person.nombre }}</td>
+                  <td>{{ person.apellido }}</td>
+                  <td><i class="btn btn-small btn-primary glyphicon glyphicon-eye-open" (click)="viewDetail(person)"></i> Ver detalle</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- <button class="btn btn-secondary">Anteriores</button>
+                  &nbsp;
+                  <button class="btn btn-secondary">Siguientes</button> -->
+        </div>
+      </div>
+
+      <!-- </div>
+  </div>
+  <!-- Breadcrumbs
+  <footer class="footer">© 2020 PhoneBook Prueba</footer>
+</div>
+-->
     </div>
   </div>
-  <!-- Breadcrumbs -->
-  <footer class="footer">© 2020 PhoneBook Prueba</footer>
 </div>
