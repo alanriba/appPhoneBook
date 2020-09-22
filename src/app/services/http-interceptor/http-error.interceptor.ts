@@ -7,7 +7,7 @@ import {
 import { Injectable } from '@angular/core';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { HttpErrorService } from '../services/http-error.service';
+import { HttpErrorService } from '../http-error.service';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {

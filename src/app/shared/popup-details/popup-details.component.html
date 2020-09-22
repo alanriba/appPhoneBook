@@ -12,12 +12,27 @@
   <form class="form-horizontal">
     <fieldset>
       <!-- Form Name -->
-      <legend>Form Name</legend>
+      <legend>Detalle de la Persona</legend>
 
-      <!-- Prepended text-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="prependedtext"></label>
-        <div class="col-md-8">
+
+        <div class="col-md-12">
+          <div class="input-group">
+            <span class="input-group-addon">RUT</span>
+            <input
+              id="prependedtext"
+              name="prependedtext"
+              class="form-control"
+              type="text"
+              value="{{ persona.rut }}"
+              [ngStyle]="{'background-color': isValidRut == true ? '#2CE664' : 'red'}"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+
+        <div class="col-md-12">
           <div class="input-group">
             <span class="input-group-addon">Nombre</span>
             <input
@@ -32,8 +47,8 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-4 control-label" for="prependedtext"></label>
-        <div class="col-md-8">
+
+        <div class="col-md-12">
           <div class="input-group">
             <span class="input-group-addon">Teléfono</span>
             <input
@@ -42,14 +57,14 @@
               class="form-control"
               type="text"
               value="{{ persona.telefono }}"
+              [ngStyle]="{'background-color': isValidTelefono == true ? '#2CE664' : 'red'}"
             />
           </div>
         </div>
       </div>
 
       <div class="form-group">
-        <label class="col-md-4 control-label" for="prependedtext"></label>
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="input-group">
             <span class="input-group-addon">Direción</span>
             <input
@@ -64,8 +79,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-4 control-label" for="prependedtext"></label>
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="input-group">
             <span class="input-group-addon">Comuna</span>
             <input
@@ -78,6 +92,22 @@
           </div>
         </div>
       </div>
+
+      <div class="form-group">
+        <div class="col-md-12">
+          <div class="input-group">
+            <span class="input-group-addon">Region</span>
+            <input
+              id="prependedtext"
+              name="prependedtext"
+              class="form-control"
+              type="text"
+              value=" {{ personaObjRegion }}"
+            />
+          </div>
+        </div>
+      </div>
+
       <div class="modal-footer">
         <button
           type="button"

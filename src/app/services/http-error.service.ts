@@ -10,10 +10,10 @@ import { AlertPopupComponent } from '../shared/alert-popup/alert-popup.component
 export class HttpErrorService {
   private errors = new BehaviorSubject<string[]>([]);
 
-  constructor(private _ngbModal: NgbModal) { }
+  constructor(private ngbModal: NgbModal) { }
 
   showError(errors: string): any {
-    const modalRef = this._ngbModal.open(AlertPopupComponent);
+    const modalRef = this.ngbModal.open(AlertPopupComponent);
     modalRef.componentInstance.errorMessage = errors;
   }
 }
